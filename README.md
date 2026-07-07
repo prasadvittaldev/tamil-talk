@@ -127,3 +127,9 @@ manual_verify.py    no-browser pipeline check
 - Sentence-sequential TTS streaming reduces *time-to-first-audio*, not total
   turn latency — the LLM still has to finish generating each sentence before
   it's spoken.
+
+## License
+
+This repo's code is [MIT licensed](LICENSE). The models it calls have their
+own, separate licenses — notably the Gemma 4 Tamil LLM, which is
+CC-BY-NC-4.0 (non-commercial), independent of this repo's own license.

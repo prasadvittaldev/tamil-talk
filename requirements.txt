@@ -1,0 +1,31 @@
+# Core web/runtime
+fastapi==0.138.2
+uvicorn[standard]==0.49.0
+anyio==4.14.1
+websockets==16.0
+requests==2.34.2
+
+# STT (faster-whisper + CTranslate2 backend)
+faster-whisper==1.2.1
+ctranslate2==4.8.0
+
+# TTS (Parler-TTS) -- not on PyPI under a stable release, install from source
+parler_tts @ git+https://github.com/huggingface/parler-tts.git
+transformers==4.46.1
+
+# Audio processing
+numpy==2.2.6
+soxr==1.1.0
+librosa==0.11.0
+
+# torch is NOT pinned here -- install the build matching your CUDA version
+# from https://pytorch.org/get-started/locally/ BEFORE installing the rest
+# of this file (parler_tts/transformers/faster-whisper all depend on it).
+# Tested with torch==2.11.0+cu128 on an RTX 5060 Ti (Blackwell, needs the
+# cu128 build specifically -- the stock cu121 wheels fail silently on that
+# architecture). Other GPUs should use whatever build matches their CUDA
+# toolkit; CPU-only works but will be far too slow for realtime use.
+
+# Optional: only needed for the GGUF-fallback LLM path (see README) when
+# Ollama isn't reachable at startup.
+# llama-cpp-python

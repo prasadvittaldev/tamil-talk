@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ta">
+<head>
+  <meta charset="utf-8">
+  <title>tamil-talk</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: sans-serif; max-width: 640px; margin: 0 auto; padding: 0 1rem;
+      display: flex; flex-direction: column; min-height: 100vh;
+    }
+    header { padding: 1rem 0; border-bottom: 1px solid #ddd; }
+    header h1 { margin: 0 0 0.5rem 0; font-size: 1.4rem; }
+    header .controls { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+    #persona-input { flex: 1; min-width: 12rem; padding: 0.3rem; }
+    #mic-btn {
+      font-size: 2rem; width: 4rem; height: 4rem; border-radius: 50%; border: none;
+      background: #d33; color: white; cursor: pointer;
+    }
+    #mic-btn.recording { background: #3a3; }
+    #mic-btn:disabled { background: #999; cursor: not-allowed; }
+    #status { color: #666; margin: 0.5rem 0; }
+    main {
+      flex: 1; overflow-y: auto; padding: 1rem 0;
+    }
+    #waveform {
+      display: block; width: 200px; height: 200px; max-width: 100%;
+      margin: 0 auto 0.5rem; background: #10151a; border-radius: 50%;
+    }
+    .turn { margin: 1rem 0; padding: 0.5rem; border-left: 3px solid #ccc; }
+    .turn.user { border-color: #06c; }
+    .turn.assistant { border-color: #3a3; }
+    .turn.assistant span.speaking { background: #dfd; font-weight: bold; }
+    label { display: inline-flex; align-items: center; gap: 0.4rem; }
+    footer { padding: 1rem 0; border-top: 1px solid #ddd; color: #666; font-size: 0.9rem; }
+    footer a { color: #06c; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>tamil-talk</h1>
+    <div class="controls">
+      <label><input type="checkbox" id="think-toggle"> Think mode</label>
+      <input type="text" id="persona-input" placeholder="Optional: system prompt / persona">
+      <button id="mic-btn">🎤</button>
+    </div>
+    <div id="status">Click and hold to talk</div>
+  </header>
+  <main>
+    <canvas id="waveform"></canvas>
+    <div id="conversation"></div>
+  </main>
+  <footer>
+    a demo by <a href="https://linkedin.com/in/prasadvittaldev/" target="_blank" rel="noopener">Prasad Vittaldev</a>
+  </footer>
+  <script src="/static/app.js"></script>
+</body>
+</html>
